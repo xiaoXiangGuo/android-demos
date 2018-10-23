@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'http://4thline.org/m2'
+        }
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'http://4thline.org/m2'
+        }
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+ext {
+    android = [
+            buildToolsVersion: '27.0.1',
+            appcompat        : '27.0.1'
+    ]
+    deps = [
+            appcompat_v7: "com.android.support:appcompat-v7:${android.appcompat}"
+    ]
+}
